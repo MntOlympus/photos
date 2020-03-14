@@ -10,7 +10,7 @@
   "scripts": {
     "dev": "webpack --watch --mode=development",
     "prod": "webpack --mode=production",
-    "start": "nodemon server/server.js",
+    "start": "nodemon server/index.js",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage --colors"
