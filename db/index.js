@@ -1,7 +1,4 @@
-// var AWS = require('aws-sdk');
-// var s3 = new AWS.S3();
 var faker = require('faker');
-var db = require('./index.js')
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/mtnOlympus');
 
@@ -14,7 +11,22 @@ var listingSchema = mongoose.Schema({
 
 var Listing = mongoose.model('Listing', listingSchema);
 
+var getListing = (index, callback) => {
+  console.log('hell from getListing')
+  var listing = Listing.find({propId: index}, {images:true}, (err,results) => {
+    if (err) {
+      callback(err, '')
+    } else {
+      callback(null, results)
+    }
+  })
+}
+
+
+
 module.exports  = {
   listingSchema,
-  Listing
+  Listing,
+  getListing
 }
+
