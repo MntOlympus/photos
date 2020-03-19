@@ -6,23 +6,24 @@ const bodyParser = require('body-parser')
 
 //***************MIDDLEWARE**************\\
 
-app.use(bodyParser())
+app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(express.static('public'))
 
 //****************API CALLS**************\\
 
 //GET request for photos from a given index
-app.get('/photos', (req, res) => {
-  console.log(req.body)
+app.post('/photos', (req, res) => {
+  // console.log(req)
   db.getListing(req.body.propId, (err, results) => {
     if (err) {
       res.send(400);
     } else {
-      console.log("WHATS REALLY GOOD")
+      console.log(results)
       res.send(results);
+      res.end()
     }
-});
+  });
 });
 
 
