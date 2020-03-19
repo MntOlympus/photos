@@ -1,9 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import ImageHeader from './ImageHeader.jsx'
-import ImageCarousel from './ImageCarousel.jsx'
-const axios = require('axios')
-import $ from 'jquery'
+import ImageHeader from './ImageHeader.jsx';
+import ImageCarousel from './ImageCarousel.jsx';
+import $ from 'jquery';
 
 
 class App extends React.Component {
@@ -20,22 +19,27 @@ class App extends React.Component {
 
   }
 
-  // componentDidMount() {
-  //   $.ajax({
-  //     url: '/photos',
-  //     success: (results) => {
-  //       this.setState({images: results},() => {
-  //         console.log(this.state.images);
-  //       } )
-  //     }
-  //   })
-  // }
-
   changeView (view, clickedImage) {
      this.setState({view:!view})
      this.setState({clickedImage: clickedImage}, () => {
        console.log(this.state.clickedImage)
      })
+  }
+
+  //GET request on mount to pull images by propId
+  componentDidMount() {
+    var index = 1 //eventually this will be random number between 1 and 100
+    $.ajax({
+      type: 'GET',
+      url:'/photos',
+      data: {propId:index},
+      success: (results) => {
+        console.log(results)
+        this.setState({images: results}, () => {
+          console.log(this.state.images)
+        })
+      }
+    })
   }
 
   render() {
@@ -52,60 +56,6 @@ class App extends React.Component {
     )
 
   }
-
-
-
-//create get request for client
-componentDidMount() {
-  // var index = 1
-  // var data = JSON.stringify({prod: 1})
-  // console.log(data)
-
-  var data = {"propId": "1"}
-  var data = JSON.stringify(data)
-
-
-  // $.get('/photos', data, (results) => {
-  //   this.setState({images: results}, () => {
-  //     console.log(results)
-  //   })
-  // }, 'json')
-
-  // $.ajax({
-  //   type: 'GET',
-  //   url: '/photos',
-  //   contentType: "application/json; charset=utf=8",
-  //   data: {"propId": "1"},
-  //   success: (results) => {
-  //     this.setState({images: results}, () => {
-  //       console.log(results)
-  //     })
-  //   }
-  // })
-
-
-$.ajax({
-  type: 'POST',
-  url:'/photos',
-  data: {propId:1},
-  success: (results) => {
-    this.setState({images: results}, () => {
-      console.log(this.state.images)
-    })
-  }
-})
-
-// var data = {"name":"John Doe"}
-// $.ajax({
-//     dataType : "json",
-//     contentType: "application/json; charset=utf-8",
-//     data : JSON.stringify(data),
-//     success : function(result) {
-//         alert(result.success); // result is an object which is created from the returned JSON
-//     },
-// });
-
-}
 
 }
 ReactDOM.render(<App />, document.getElementById('app'))
