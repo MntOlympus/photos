@@ -28,7 +28,7 @@ var createImage = (url, i, j) => {
   //create image description
   var description = faker.lorem.sentence();
   url = url + i + "/" + j;
-  var newImage = {url: url, description: description};
+  var newImage = {index:j, url: url + ".jpeg", description: description};
   return newImage
 }
 

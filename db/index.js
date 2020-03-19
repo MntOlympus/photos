@@ -5,6 +5,7 @@ mongoose.connect('mongodb://localhost/mtnOlympus');
 var listingSchema = mongoose.Schema({
   propId: Number,
   images: [{
+    index: Number,
     url: String,
     description: String}]
 });
@@ -12,8 +13,7 @@ var listingSchema = mongoose.Schema({
 var Listing = mongoose.model('Listing', listingSchema);
 
 var getListing = (index, callback) => {
-  console.log('hell from getListing')
-  var listing = Listing.find({propId: index}, {images:true}, (err,results) => {
+  var listing = Listing.find({propId: index}, (err,results) => {
     if (err) {
       callback(err, '')
     } else {
@@ -21,8 +21,6 @@ var getListing = (index, callback) => {
     }
   })
 }
-
-
 
 module.exports  = {
   listingSchema,
