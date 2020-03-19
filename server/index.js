@@ -12,10 +12,10 @@ app.use(express.static('public'))
 
 //****************API CALLS**************\\
 
-//GET request for photos from a given index
-app.post('/photos', (req, res) => {
-  // console.log(req)
-  db.getListing(req.body.propId, (err, results) => {
+//GET request for photos based on propId
+app.get('/photos', (req, res) => {
+  console.log(req.query)
+  db.getListing(req.query.propId, (err, results) => {
     if (err) {
       res.send(400);
     } else {

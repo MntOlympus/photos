@@ -1,4 +1,3 @@
-var faker = require('faker');
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/mtnOlympus');
 
@@ -12,6 +11,7 @@ var listingSchema = mongoose.Schema({
 
 var Listing = mongoose.model('Listing', listingSchema);
 
+//Query the database for photos from specific propId
 var getListing = (index, callback) => {
   var listing = Listing.find({propId: index}, (err,results) => {
     if (err) {
