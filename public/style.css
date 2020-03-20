@@ -51,11 +51,13 @@ table {
   ========================================
 */
 
-/* body {
-	background:white;
-	color: #888;
-	font: 300 16px/22px "Lato", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-} */
+html, body {
+  /* position:fixed; */
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+}
 
 /*
 ===============================
@@ -136,56 +138,10 @@ HEADER
 
 } */
 
-/*x
-===============================
-BUTTONS
-===============================
-*/
-
-.close-btn {
-  float: left;
-  size: 20px;
-  box-sizing : border-box;
-  -webkit-appearance : none;
-  cursor : pointer;
-  font-family : Circular, -apple-system, system-ui, Roboto, "Helvetica Neue", sans-serif;
-  font-size : 14px;
-  font-weight : 600;
-  display : inline-block;
-  margin : 10px;
-  position : relative;
-  text-align : center;
-  text-decoration : none solid rgb(34, 34, 34);
-  width : 89.0469px;
-  line-height : 18px;
-  border-radius : 8px;
-  padding : 8px 16px;
-  transition : box-shadow 0.2s ease 0s, -ms-transform 0.1s ease 0s, -webkit-transform 0.1s ease 0s, transform 0.1s ease 0s;
-  background : rgba(34, 34, 34, 0.16) none repeat scroll 0% 0% / auto padding-box border-box;
-  color : rgb(34, 34, 34);
-  border : 0px none rgb(34, 34, 34);
-  cursor: pointer;
-
-}
-
-.left-button {
-  float: left;
-  cursor:pointer;
-  width: 10px;
-  height: 10px;
-
-}
-.right-button {
-  float: right;
-  cursor:pointer;
-  width: 10px;
-  height: 10px;
-
-}
 
 /*
 ===============================
-TESTING
+Image Header Styling
 ===============================
 */
 
@@ -196,7 +152,7 @@ TESTING
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
-  justify-items: start;
+  /* justify-items: start; */
   /* grid-gap: 1px 1px; */
 }
 
@@ -223,6 +179,7 @@ TESTING
   border-top-left-radius: 30px;
   border-bottom-left-radius: 30px;
 }
+
 .cell-2 {
   width:300px;
   height: 300px;
@@ -232,7 +189,7 @@ TESTING
 
 }
 .cell-3 {
-  width:300px;
+  width: 300px;
   height: 300px;
   object-fit:cover;
   border-top-right-radius: 30px;
@@ -253,26 +210,140 @@ TESTING
   border-bottom-right-radius: 30px;
 }
 
+/*
+===============================
+Image Carousel Styling
+===============================
+*/
+
 .image-carousel {
-  margin: auto;
+  /* margin: auto; */
+  margin-top:100px;
   text-align:center;
+  vertical-align: middle;
+  width: 75%;
+  height: 671px;
+  position: relative;
+  margin: auto;
+
+
 }
 
 .main-image {
     box-sizing : border-box;
-    height : 500px;
-    width : 500px;
+    max-width: 75vw;
+    max-height: 75vh;
+    height:auto;
+    /* height: 500px; */
+    vertical-align: center;
+    margin-top: 10px;
+
 }
 
-.description {
-  text-align: center;
-  margin: 20px;
+.image-container {
+
 }
+
+
+
+
 
 .counter {
+  margin-bottom:25px;
+
+  font-size:16px;
+  line-height: 20px;
+  letter-spacing: normal;
   text-align: center;
-  margin: 20px;
 }
+
+/*
+===============================
+FOOTER
+===============================
+*/
+
+.description {
+
+
+}
+
+footer {
+  text-align: center;
+  margin-top:0;
+
+}
+
+
+
+/*x
+===============================
+BUTTONS
+===============================
+*/
+
+.like-share {
+  float:right;
+  margin-right: 20px;
+}
+
+
+.left-button {
+  float: left;
+  cursor:pointer;
+  width: 50px;
+  height: 50px;
+  margin-left: 5px;
+  margin-top: 25%;
+  text-align: left;
+  left:0;
+
+  border-radius: 100%;
+;
+
+
+
+}
+.right-button {
+  /* float: right; */
+  cursor:pointer;
+  width: 50px;
+  height: 50px;
+  text-align: right;
+  position: absolute;
+  right: 0;
+  margin-top: 25%;
+  border-radius: 100%;
+
+
+}
+
+.close-btn {
+  size: 20px;
+  box-sizing : border-box;
+  -webkit-appearance : none;
+  cursor : pointer;
+  font-family : Circular, -apple-system, system-ui, Roboto, "Helvetica Neue", sans-serif;
+  font-size : 12px;
+  font-weight : 500;
+  display : inline-block;
+  position : relative;
+  text-align : center;
+  text-decoration : none solid rgb(34, 34, 34);
+  width : 89.0469px;
+  line-height : 18px;
+  border-radius : 8px;
+  padding : 8px 16px;
+  transition : box-shadow 0.2s ease 0s, -ms-transform 0.1s ease 0s, -webkit-transform 0.1s ease 0s, transform 0.1s ease 0s;
+  background : rgba(34, 34, 34, 0.16) none repeat scroll 0% 0% / auto padding-box border-box;
+  color : rgb(34, 34, 34);
+  border : 0px none rgb(34, 34, 34);
+  cursor: pointer;
+  margin-top: 25px;
+  margin-left:25px
+
+}
+
 
 
 
