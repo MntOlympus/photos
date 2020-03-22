@@ -12,17 +12,17 @@ class App extends React.Component {
     this.state = {
       images: [],
       view: true,
-      clickedImage: ''
+      clickedImageIndex: 0
     }
 
     this.changeView = this.changeView.bind(this);
 
   }
 
-  changeView (view, clickedImage) {
+  changeView (view, clickedImageIndex) {
      this.setState({view:!view})
-     this.setState({clickedImage: clickedImage}, () => {
-       console.log(this.state.clickedImage)
+     this.setState({clickedImageIndex: clickedImageIndex}, () => {
+       console.log('clicked image from index.jsx', this.state.clickedImageIndex)
      })
   }
 
@@ -35,27 +35,25 @@ class App extends React.Component {
       data: {propId:index},
       success: (results) => {
         console.log(results)
-        this.setState({images: results}, () => {
-          console.log(this.state.images)
+        // console.log('from index.jsx GET', results[0].images[0].url)
+        this.setState({images: results[0].images})}
         })
-      }
-    })
-  }
+   }
 
   render() {
-    if (this.state.view) {
-      var component = <ImageHeader view={this.state.view} changeView={this.changeView} images={this.state.images}/>
-    } else {
-      var component = <ImageCarousel view={this.state.view} changeView={this.changeView} images={this.state.images} clickedImage={this.state.clickedImage}/>
+    if (this.state.images.length > 1) {
+      if (this.state.view) {
+        var component = <ImageHeader view={this.state.view} changeView={this.changeView} images={this.state.images}/>
+      } else {
+        var component = <ImageCarousel view={this.state.view} changeView={this.changeView} images={this.state.images} clickedImageIndex={this.state.clickedImageIndex}/>
+      }
     }
-
     return (
       <div>
         {component}
       </div>
     )
-
   }
-
 }
+
 ReactDOM.render(<App />, document.getElementById('app'))

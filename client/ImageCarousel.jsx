@@ -7,42 +7,159 @@ class ImageCarousel extends React.Component {
     super(props);
 
     this.state =  {
-      initialImage: this.props.clickedImage,
-      allImages:this.props.images
-
+      allImages: this.props.images,
+      currentIndex: this.props.clickedImageIndex,
+      currentImage: {},
+      counter: 1
     }
 
     this.handleClick = this.handleClick.bind(this);
+    this.handleLeftClick = this.handleLeftClick.bind(this);
+    this.handleRightClick = this.handleRightClick.bind(this);
+
   }
 
+  componentDidMount() {
+    this.setState({
+      currentImage: this.state.allImages[this.state.currentIndex]
+    })
+  }
 
   handleClick(event) {
     this.props.changeView(this.props.view)
   }
 
   handleLeftClick(event) {
-    console.log('hello')
-
+    this.setState({currentIndex: Number(this.state.currentIndex) - 1}, () => {
+      this.setState({currentImage: this.state.allImages[this.state.currentIndex]})
+    })
   }
 
   handleRightClick(event) {
-    console.log('ohh snap')
-
+    this.setState({currentIndex: Number(this.state.currentIndex) + 1}, () => {
+      this.setState({currentImage: this.state.allImages[this.state.currentIndex]})
+    })
   }
 
   render() {
-    return (
-      <div class="image-carousel">
-        <button onClick={this.handleClick} class="close-btn">X Close</button>
-        <div class="counter">1/20</div>
-        <img class= "main-image" src={this.state.initialImage}></img>
-        <div class="description">THIS IS OUR DESCRIPTION</div>
-        <button onClick={this.handleLeftClick} class="left-button"><img src="./leftArrow.jpeg"></img></button>
-        <button onClick={this.handleRightClick} class="right-button"><img src="./rightArrow.jpeg"></img></button>
+    if (this.state.currentImage !== undefined){
+      console.log('from render' , this.state.currentImage)
+      if (this.state.currentIndex < 1){
+        return (
+          <div>
+            <header>
+              <button onClick={this.handleClick} className="close-btn">X Close</button>
+              <h1 className="counter">{Number(this.state.currentIndex) + 1}/{this.state.allImages.length}</h1>
+            </header>
 
-      </div>
-    )
+            <body>
+              <div className="image-carousel">
+                <img id={this.state.currentIndex} className= "main-image" src={this.state.currentImage.url}></img>
+                {/* <button onClick={this.handleLeftClick} className="left-button">LEFT</button> */}
+                <button onClick={this.handleRightClick} className="right-button">RIGHT</button>
+              </div>
+            </body>
+
+
+            <footer>
+              <div className="description">{this.state.currentImage.description}</div>
+            </footer>
+
+          </div>
+                )
+      } else if (this.state.currentIndex === this.state.allImages.length - 1) {
+        return (
+          <div>
+            <header>
+              <button onClick={this.handleClick} className="close-btn">X Close</button>
+              <h1 className="counter">{Number(this.state.currentIndex) + 1}/{this.state.allImages.length}</h1>
+            </header>
+
+            <body>
+              <div className="image-carousel">
+                <img id={this.state.currentIndex} className= "main-image" src={this.state.currentImage.url}></img>
+                <button onClick={this.handleLeftClick} className="left-button">LEFT</button>
+                {/* <button onClick={this.handleRightClick} className="right-button">RIGHT</button> */}
+              </div>
+            </body>
+
+
+            <footer>
+              <div className="description">{this.state.currentImage.description}</div>
+            </footer>
+
+          </div>
+        )
+      } else {
+        return (
+          <div>
+            <header>
+              <button onClick={this.handleClick} className="close-btn">X Close</button>
+              <h1 className="counter">{Number(this.state.currentIndex) + 1}/{this.state.allImages.length}</h1>
+              <div className="like-share">
+                <button>share</button>
+                <button>like</button>
+              </div>
+
+            </header>
+
+            <body>
+              <div className="image-carousel">
+                  <img id={this.state.currentIndex} className= "main-image" src={this.state.currentImage.url}></img>
+                <button onClick={this.handleLeftClick} className="left-button">L</button>
+                <button onClick={this.handleRightClick} className="right-button">R</button>
+              </div>
+            </body>
+
+
+            <footer>
+              <div className="description">{this.state.currentImage.description}</div>
+            </footer>
+
+          </div>
+        )
+      }
+    }
   }
-
 }
 export default ImageCarousel
+
+// render() {
+//   if (this.state.currentImage !== undefined){
+//     console.log('from render' , this.state.currentImage)
+//     if (this.state.currentIndex < 1){
+//       return (
+//         <div className="image-carousel">
+//           <button onClick={this.handleClick} className="close-btn">X Close</button>
+//           <h1>className="counter">1/{this.state.allImages.length}</h1>
+
+//           <div className="counter">1/{this.state.allImages.length}</div>
+//           <img id={this.state.currentIndex} className= "main-image" src={this.state.currentImage.url}></img>
+//           <div className="description">{this.state.currentImage.description}</div>
+//           <button onClick={this.handleRightClick} className="right-button">RIGHT</button>
+//         </div>
+//               )
+//     } else if (this.state.currentIndex === this.state.allImages.length - 1) {
+//       return (
+//         <div className="image-carousel">
+//           <button onClick={this.handleClick} className="close-btn">X Close</button>
+//           <div className="counter">{this.state.allImages.length}/{this.state.allImages.length}</div>
+//           <img id={this.state.currentIndex} className= "main-image" src={this.state.currentImage.url}></img>
+//           <div className="description">{this.state.currentImage.description}</div>
+//           <button onClick={this.handleLeftClick} className="left-button">LEFT</button>
+//         </div>
+//       )
+//     } else {
+//       return (
+//         <div className="image-carousel">
+//           <button onClick={this.handleClick} className="close-btn">X Close</button>
+//           <div className="counter">{Number(this.state.currentIndex) + 1}/{this.state.allImages.length}</div>
+//           <img id={this.state.currentIndex} className= "main-image" src={this.state.currentImage.url}></img>
+//           <div className="description">{this.state.currentImage.description}</div>
+//           <button onClick={this.handleLeftClick} className="left-button">LEFT</button>
+//           <button onClick={this.handleRightClick} className="right-button">RIGHT</button>
+//         </div>
+//       )
+//     }
+//   }
+// }
