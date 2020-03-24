@@ -4,7 +4,6 @@ import ImageHeader from './ImageHeader.jsx';
 import ImageCarousel from './ImageCarousel.jsx';
 import $ from 'jquery';
 
-
 class App extends React.Component {
   constructor(props) {
     super(props)
@@ -28,7 +27,8 @@ class App extends React.Component {
 
   //GET request on mount to pull images by propId
   componentDidMount() {
-    var index = 1 //eventually this will be random number between 1 and 100
+    var index = 1;
+
     $.ajax({
       type: 'GET',
       url:'/photos',
@@ -36,9 +36,10 @@ class App extends React.Component {
       success: (results) => {
         console.log(results)
         // console.log('from index.jsx GET', results[0].images[0].url)
-        this.setState({images: results[0].images})}
-        })
-   }
+        this.setState({images: results[0].images})
+      }
+    })
+  }
 
   render() {
     if (this.state.images.length > 1) {
