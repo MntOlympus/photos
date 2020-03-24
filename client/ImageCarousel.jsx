@@ -47,76 +47,72 @@ class ImageCarousel extends React.Component {
       if (this.state.currentIndex < 1){
         return (
           <div>
-            <header>
+
+            <div className="header">
               <button onClick={this.handleClick} className="close-btn">X Close</button>
-              <h1 className="counter">{Number(this.state.currentIndex) + 1}/{this.state.allImages.length}</h1>
-            </header>
+              <span className="counter">{Number(this.state.currentIndex) + 1} / {this.state.allImages.length}</span>
+            </div>
 
-            <body>
+          <body>
+            <span>
               <div className="image-carousel">
-                <img id={this.state.currentIndex} className= "main-image" src={this.state.currentImage.url}></img>
-                {/* <button onClick={this.handleLeftClick} className="left-button">LEFT</button> */}
-                <button onClick={this.handleRightClick} className="right-button">RIGHT</button>
+                  <img id={this.state.currentIndex} className= "main-image" src={this.state.currentImage.url}></img>
               </div>
-            </body>
+              <button onClick={this.handleRightClick} className="right-button"><img className="btn-image" src="./right.jpeg"></img></button>
+            </span>
+            <div className="description">
+              <span >{this.state.currentImage.description}</span>
+            </div>
+          </body>
 
-
-            <footer>
-              <div className="description">{this.state.currentImage.description}</div>
-            </footer>
-
-          </div>
+        </div>
                 )
       } else if (this.state.currentIndex === this.state.allImages.length - 1) {
         return (
           <div>
-            <header>
+
+            <div className="header">
               <button onClick={this.handleClick} className="close-btn">X Close</button>
-              <h1 className="counter">{Number(this.state.currentIndex) + 1}/{this.state.allImages.length}</h1>
-            </header>
+              <span className="counter">{Number(this.state.currentIndex) + 1} / {this.state.allImages.length}</span>
+            </div>
 
-            <body>
+          <body>
+            <span>
+              <button onClick={this.handleLeftClick} className="left-button"><img className="btn-image" src="./left.jpeg"></img></button>
               <div className="image-carousel">
-                <img id={this.state.currentIndex} className= "main-image" src={this.state.currentImage.url}></img>
-                <button onClick={this.handleLeftClick} className="left-button">LEFT</button>
-                {/* <button onClick={this.handleRightClick} className="right-button">RIGHT</button> */}
+                  <img id={this.state.currentIndex} className= "main-image" src={this.state.currentImage.url}></img>
               </div>
-            </body>
+            </span>
+            <div className="description">
+              <span >{this.state.currentImage.description}</span>
+            </div>
+          </body>
 
-
-            <footer>
-              <div className="description">{this.state.currentImage.description}</div>
-            </footer>
-
-          </div>
+        </div>
         )
       } else {
         return (
           <div>
-            <header>
+
+            <div className="header">
               <button onClick={this.handleClick} className="close-btn">X Close</button>
-              <h1 className="counter">{Number(this.state.currentIndex) + 1}/{this.state.allImages.length}</h1>
-              <div className="like-share">
-                <button>share</button>
-                <button>like</button>
-              </div>
+              <span className="counter">{Number(this.state.currentIndex) + 1} / {this.state.allImages.length}</span>
+            </div>
 
-            </header>
-
-            <body>
+          <body>
+            <span>
+              <button onClick={this.handleLeftClick} className="left-button"><img className="btn-image" src="./left.jpeg"></img></button>
               <div className="image-carousel">
                   <img id={this.state.currentIndex} className= "main-image" src={this.state.currentImage.url}></img>
-                <button onClick={this.handleLeftClick} className="left-button">L</button>
-                <button onClick={this.handleRightClick} className="right-button">R</button>
               </div>
-            </body>
+              <button onClick={this.handleRightClick} className="right-button"><img className="btn-image" src="./right.jpeg"></img></button>
+            </span>
+            <div className="description">
+              <span >{this.state.currentImage.description}</span>
+            </div>
+          </body>
 
-
-            <footer>
-              <div className="description">{this.state.currentImage.description}</div>
-            </footer>
-
-          </div>
+        </div>
         )
       }
     }
