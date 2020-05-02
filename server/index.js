@@ -3,12 +3,13 @@ const app = express()
 const port = 3001
 const db = require('../db/index.js')
 const bodyParser = require('body-parser')
+const path = require('path');
+
+app.use(express.static('client/dist'))
 
 //***************MIDDLEWARE**************\\
-
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
-app.use(express.static('public'))
 
 //****************API CALLS**************\\
 
@@ -27,5 +28,5 @@ app.get('/photos', (req, res) => {
 });
 
 
-//****************PORT OPENING**************\\
+//****************PORT OPENING**************\
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))

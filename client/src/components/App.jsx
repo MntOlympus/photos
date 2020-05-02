@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import ImageHeader from './ImageHeader.jsx';
 import ImageCarousel from './ImageCarousel.jsx';
 import $ from 'jquery';
@@ -57,4 +56,4 @@ class App extends React.Component {
   }
 }
 
-ReactDOM.render(<App />, document.getElementById('photos'))
+export default App

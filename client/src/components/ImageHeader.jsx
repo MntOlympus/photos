@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import styles from './styles/ImageHeader.css'
+import styles from '../../styles/ImageHeader.css'
 
 const ImageHeader = (props) => {
 
