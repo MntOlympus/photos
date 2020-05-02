@@ -1,9 +1,10 @@
 const express = require('express')
+const path = require('path');
+const bodyParser = require('body-parser');
+const db = require('../db/index.js');
+
 const app = express()
 const port = 3001
-const db = require('../db/index.js')
-const bodyParser = require('body-parser')
-const path = require('path');
 
 app.use(express.static('client/dist'))
 
@@ -26,7 +27,6 @@ app.get('/photos', (req, res) => {
     }
   });
 });
-
 
 //****************PORT OPENING**************\
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))

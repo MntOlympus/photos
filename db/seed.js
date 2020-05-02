@@ -1,16 +1,12 @@
-// var AWS = require('aws-sdk');
-// var s3 = new AWS.S3();
 var faker = require('faker');
 var db = require('./index.js')
-// var mongoose = require('mongoose');
-// mongoose.connect('mongodb://localhost/mtnOlympus');
 
 //Set S3 Bucket URL
 var url = 'https://mtnolympusimages.s3-us-west-1.amazonaws.com/'
 
 //************SEED DATABASE****************\\
 
-//Seed 100 listings
+//Seed 100 listings each with 22 images
 var seedDatabase = (url) => {
   for (var i = 0; i < 100; i++) {
     var imageArray = [];
