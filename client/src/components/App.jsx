@@ -12,16 +12,11 @@ function App() {
     setView(!view);
   };
 
-  const displayImages = (images) => {
-    setImages(images);
-  };
-
   if (images.length < 1) {
-    console.log("we are getting images");
     axios
       .get("/photos?propId=1")
       .then((response) => {
-        displayImages(response);
+        setImages(response.data);
       })
       .catch((error) => {
         console.log(error);
