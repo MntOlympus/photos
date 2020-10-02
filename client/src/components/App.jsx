@@ -1,59 +1,44 @@
-import React from 'react';
-import ImageHeader from './ImageHeader.jsx';
-import ImageCarousel from './ImageCarousel.jsx';
-import $ from 'jquery';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import ImageHeader from "./ImageHeader.jsx";
+import ImageCarousel from "./ImageCarousel.jsx";
 
-class App extends React.Component {
-  constructor(props) {
-    super(props)
+function App() {
+  const [images, setImages] = useState([]);
+  const [clickedImage, setClickedImage] = useState(0);
+  const [view, setView] = useState(true);
 
-    this.state = {
-      images: [],
-      view: true,
-      clickedImageIndex: 0
-    }
+  const changeView = () => {
+    setView(!view);
+  };
 
-    this.changeView = this.changeView.bind(this);
+  const displayImages = (images) => {
+    setImages(images);
+  };
 
+  if (images.length < 1) {
+    console.log("we are getting images");
+    axios
+      .get("/photos?propId=1")
+      .then((response) => {
+        displayImages(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
-  changeView (view, clickedImageIndex) {
-     this.setState({view:!view})
-     this.setState({clickedImageIndex: clickedImageIndex}, () => {
-       console.log('clicked image from index.jsx', this.state.clickedImageIndex)
-     })
-  }
-
-  //GET request on mount to pull images by propId
-  componentDidMount() {
-    var index = 1;
-
-    $.ajax({
-      type: 'GET',
-      url:'/photos',
-      data: {propId:index},
-      success: (results) => {
-        console.log(results)
-        // console.log('from index.jsx GET', results[0].images[0].url)
-        this.setState({images: results[0].images})
-      }
-    })
-  }
-
-  render() {
-    if (this.state.images.length > 1) {
-      if (this.state.view) {
-        var component = <ImageHeader view={this.state.view} changeView={this.changeView} images={this.state.images}/>
-      } else {
-        var component = <ImageCarousel view={this.state.view} changeView={this.changeView} images={this.state.images} clickedImageIndex={this.state.clickedImageIndex}/>
-      }
-    }
-    return (
-      <div>
-        {component}
-      </div>
-    )
+  if (view === true) {
+    let component = (
+      <ImageHeader images={images} view={view} changeView={changeView} />
+    );
+    return <div>{component}</div>;
+  } else {
+    let component = (
+      <ImageCarousel images={images} view={view} changeView={changeView} />
+    );
+    return <div>{component}</div>;
   }
 }
 
-export default App
+export default App;
