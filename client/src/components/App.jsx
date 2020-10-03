@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import ImageHeader from "./ImageHeader.jsx";
 import ImageCarousel from "./ImageCarousel.jsx";
+const regeneratorRuntime = require("regenerator-runtime");
 
 function App() {
   const [images, setImages] = useState([]);
@@ -12,16 +13,18 @@ function App() {
     setView(!view);
   };
 
-  if (images.length < 1) {
-    axios
-      .get("/photos?propId=1")
-      .then((response) => {
-        setImages(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }
+  // useEffect(async () => {
+  //   const results = await axios("/photos?propId=1");
+  //   setImages(results.data);
+  // }, []);
+
+  useEffect(() => {
+    async function fetchData() {
+      const results = await axios("/photos?propId=1");
+      setImages(results);
+    }
+    fetchData();
+  }, []);
 
   if (view === true) {
     let component = (
