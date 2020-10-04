@@ -1,7 +1,9 @@
-import React, { useState, useEffect, Suspense } from "react";
+import React, { useState, useEffect, useLayoutEffect } from "react";
 import axios from "axios";
 import ImageHeader from "./ImageHeader.jsx";
 import ImageCarousel from "./ImageCarousel.jsx";
+import WindowDimensionProvider from './WindowDimensionProvider.jsx'
+// import ResponsiveLayout from "./ResponsiveLayaout.jsx"
 const regeneratorRuntime = require("regenerator-runtime");
 
 function App() {
@@ -26,19 +28,25 @@ function App() {
     fetchData();
   }, []);
 
+
+
   //conditionally renders ImageHeader or ImageCarousel depending on view
   if (view === true && isFetching === false) {
     let component = (
-      <ImageHeader images={images} view={view} changeView={changeView} />
+      <WindowDimensionProvider>
+        <ImageHeader images={images} view={view} changeView={changeView} />
+      </WindowDimensionProvider>
     );
     return <div>{component}</div>;
   } else if (view === false && isFetching === false) {
     let component = (
-      <ImageCarousel images={images} view={view} changeView={changeView} />
+      <WindowDimensionProvider>
+        <ImageCarousel images={images} view={view} changeView={changeView} />
+      </WindowDimensionProvider>
     );
     return <div>{component}</div>;
   } else {
-    return <div>Loading your home.....</div>;
+    return <div></div>;
   }
 }
 
