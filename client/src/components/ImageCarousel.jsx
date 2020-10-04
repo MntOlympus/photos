@@ -4,11 +4,11 @@ import styles from "../../styles/ImageCarousel.css";
 
 const ImageCarousel = (props) => {
   return (
-    <button onClick={() => props.changeView(!props.view)}>SWAG SWAG</button>
+    <button onClick={() => props.changeView(!props.view)}>hello from ImageCarousel</button>
   );
 };
 
-export default ImageCarousel;
+export default ImageCarousel
 
 // class ImageCarousel extends React.Component {
 //   constructor(props) {
