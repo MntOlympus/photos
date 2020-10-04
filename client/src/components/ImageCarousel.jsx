@@ -4,7 +4,7 @@ import styles from "../../styles/ImageCarousel.css";
 
 const ImageCarousel = (props) => {
   return (
-    <button onClick={() => props.changeView(!props.view)}>hello from IC</button>
+    <button onClick={() => props.changeView(!props.view)}>SWAG SWAG</button>
   );
 };
 

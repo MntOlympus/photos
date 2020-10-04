@@ -4,7 +4,6 @@ import ImageHeader from './ImageHeader.jsx'
 import SingleImage from './SingleImage.jsx'
 
 const ResponsiveLayoutImageHeader = (props) => {
-  console.log('hello')
   const breakpoint = 192;
   const { width } = useWindowDimensions()
 

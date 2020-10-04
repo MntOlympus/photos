@@ -1,42 +1,10 @@
-import React, {
-  useState,
-  useEffect,
-  useLayoutEffect,
-  Component,
-  LoadingSpinner,
-} from "react";
-import ReactDOM from "react-dom";
+import React from "react";
 import styles from "../../styles/ImageHeader.css";
 
 const ImageHeader = (props) => {
 
-  const useWindowSize = () => {
-
-    const [windowSize, setWindowSize] = useState({
-      width: window.innerWidth,
-      height: window.innerHeight
-    });
-
-    useLayoutEffect(() => {
-      const handleResize = () => {
-        setWindowSize({
-          width: window.innerWidth,
-          height: window.innerHeight
-        });
-      };
-
-
-      window.addEventListener("resize", handleResize);
-
-      handleResize();
-
-      return () => window.removeEventListener("resize", handleResize);
-    }, []);
-    console.log(windowSize)
-    return windowSize;
-  };
-
-  useWindowSize();
+  //adds event listener to browser window
+  //returns window size when browser size is changed by user
 
   return (
     <div>
