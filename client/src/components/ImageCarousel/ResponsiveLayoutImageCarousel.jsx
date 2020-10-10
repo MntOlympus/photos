@@ -1,7 +1,8 @@
 import React from 'react'
-import { useWindowDimensions } from './WindowDimensionProvider.jsx'
+import { useWindowDimensions } from '../WindowDimensionProvider.jsx'
 import ImageCarousel from './ImageCarousel.jsx'
 import ImageColumn from './ImageColumn.jsx'
+
 
 
 const ResponsiveLayoutImageCarousel = (props) => {

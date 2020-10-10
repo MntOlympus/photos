@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../../styles/ImageHeader.css";
+import styles from "../../../styles/ImageHeader.css";
 
 const ImageHeader = (props) => {
 
