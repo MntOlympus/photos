@@ -23,8 +23,6 @@ const WindowDimensionProvider = ({ children }) => {
 
   }, []);
 
-  console.log(dimensions)
-
   return (
     <WindowDimensionCtx.Provider value={dimensions}>
       {children}

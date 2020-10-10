@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import styles from "../../styles/ImageCarousel.css";
+import styles from "../../../styles/ImageCarousel.css";
 
 const ImageCarousel = (props) => {
   return (

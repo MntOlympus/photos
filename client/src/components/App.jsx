@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useLayoutEffect } from "react";
 import axios from "axios";
 import WindowDimensionProvider from './WindowDimensionProvider.jsx'
-import ResponsiveLayoutImageHeader from "./ResponsiveLayoutImageHeader.jsx"
-import ResponsiveLayoutImageCarousel from './ResponsiveLayoutImageCarousel.jsx'
+import ResponsiveLayoutImageHeader from "./ImageHeader/ResponsiveLayoutImageHeader.jsx"
+import ResponsiveLayoutImageCarousel from './ImageCarousel/ResponsiveLayoutImageCarousel.jsx'
 
 
 const regeneratorRuntime = require("regenerator-runtime");
