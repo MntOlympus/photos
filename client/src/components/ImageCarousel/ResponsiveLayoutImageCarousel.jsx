@@ -6,7 +6,7 @@ import ImageColumn from './ImageColumn.jsx'
 
 
 const ResponsiveLayoutImageCarousel = (props) => {
-  const breakpoint = 625;
+  const breakpoint = 575;
   const { width } = useWindowDimensions()
   //want to use width to decide which component type to render based on breakpoint
   //check windowWidth

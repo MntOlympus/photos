@@ -4,7 +4,7 @@ import ImageHeader from './ImageHeader.jsx'
 import ImageSlider from './ImageSlider.jsx'
 
 const ResponsiveLayoutImageHeader = (props) => {
-  const breakpoint = 550;
+  const breakpoint = 575;
   const { width } = useWindowDimensions();
   //want to use width to determine which component type to render based on breakpoint
   //greater than breakpoint image header else render single images
