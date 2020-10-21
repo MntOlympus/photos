@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styles from "../../../styles/ImageCarousel.css";
+import ImageCarouselNavBar from './ImageCarouselNavBar.jsx'
 
 const ImageCarousel = (props) => {
   const [imageIndex, setImageIndex] = useState(0);
@@ -19,6 +20,7 @@ const ImageCarousel = (props) => {
   if (imageIndex === 0) {
     return (
       <div>
+        <ImageCarouselNavBar />
         <div className={styles.imageContainer}>
           <img className={styles.img} src={currentSlide.url}></img>
         </div>
@@ -41,6 +43,7 @@ const ImageCarousel = (props) => {
   } else {
     return (
       <div>
+
         <div>
           <div className={styles.arrowDivLeft}>
             <button onClick={arrowLeftClick} className={styles.leftArrow} id="arrow-left" ><i></i></button>
