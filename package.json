@@ -17,40 +17,49 @@
     "seed": "node db/seed.js"
   },
   "dependencies": {
-    "aws-sdk": "^2.640.0",
+    "aws-sdk": "^2.771.0",
     "axios": "^0.19.2",
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
     "faker": "^4.1.0",
-    "jquery": "^3.4.1",
-    "mongoose": "^5.9.5",
-    "nodemon": "^2.0.2",
-    "react": "^16.13.0",
-    "react-dom": "^16.13.0",
-    "style-loader": "^1.2.1"
+    "mongoose": "^5.10.9",
+    "nodemon": "^2.0.4",
+    "react": "^16.13.1",
+    "react-alice-carousel": "^1.19.3",
+    "react-dom": "^16.13.1",
+    "react-horizontal-scrolling-menu": "^0.7.8",
+    "style-loader": "^1.3.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.8.7",
-    "@babel/plugin-proposal-class-properties": "^7.0.0",
-    "@babel/plugin-proposal-export-namespace-from": "^7.0.0",
-    "@babel/plugin-proposal-throw-expressions": "^7.0.0",
+    "@babel/core": "^7.11.6",
+    "@babel/plugin-proposal-class-properties": "^7.10.4",
+    "@babel/plugin-proposal-export-namespace-from": "^7.10.4",
+    "@babel/plugin-proposal-throw-expressions": "^7.10.4",
     "@babel/plugin-syntax-dynamic-import": "^7.0.0",
-    "@babel/polyfill": "^7.0.0-beta.51",
-    "@babel/preset-env": "^7.0.0-beta.51",
-    "@babel/preset-react": "^7.0.0-beta.51",
+    "@babel/polyfill": "^7.11.5",
+    "@babel/preset-env": "^7.11.5",
+    "@babel/preset-react": "^7.10.4",
     "babel-core": "^7.0.0-bridge.0",
-    "babel-jest": "^23.4.2",
-    "babel-loader": "^8.0.6",
+    "babel-jest": "^23.6.0",
+    "babel-loader": "^8.1.0",
     "copy-webpack-plugin": "^4.5.1",
     "css-loader": "^0.28.11",
-    "enzyme": "^3.3.0",
-    "enzyme-adapter-react-16": "^1.1.1",
-    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.5",
+    "enzyme-to-json": "^3.6.1",
+    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor.git",
     "html-webpack-plugin": "^3.2.0",
-    "jest": "^25.1.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^25.5.4",
     "path": "^0.12.7",
-    "webpack-cli": "^3.3.11",
-    "webpack-dev-server": "^3.1.4",
-    "webpack": "^4.43.0"
+    "webpack": "^4.44.2",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
+      "\\.(css|less)$": "identity-obj-proxy"
+    }
   }
 }
