@@ -33,7 +33,7 @@ function App() {
   if (view === true && isFetching === false) {
     return (
       <WindowDimensionProvider>
-        <ResponsiveLayoutImageHeader images={images} view={view} changeView={changeView} />
+        <ResponsiveLayoutImageHeader />
       </WindowDimensionProvider>
     );
 
