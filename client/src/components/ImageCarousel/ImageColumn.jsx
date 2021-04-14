@@ -9,7 +9,7 @@ const ImageColumn = (props) => {
   return (
     <div>
       {allImages.map((image) =>
-        <ColumnImage className={styles.slider} image={image.url} />
+        // <ColumnImage className={styles.slider} image={image.url} />
       )}
     </div>
 

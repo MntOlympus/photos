@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import styles from "../../../styles/ImageCarousel.css";
-import ImageCarouselNavBar from './ImageCarouselNavBar.jsx'
+// import ImageCarouselNavBar from './ImageCarouselNavBar.jsx'
 
 const ImageCarousel = (props) => {
   const [imageIndex, setImageIndex] = useState(0);
   let currentSlide = props.images.data[imageIndex];
-
 
   const arrowRightClick = () => {
     setImageIndex(imageIndex + 1)
